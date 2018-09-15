@@ -13,8 +13,7 @@ The method first, takes the compliment of the bits, adds 1, and sets it equal to
 0 in binary has the unique property of remaining exactly the same when negated in 2's compliment. So 0 will remain as all 0s
 Any other number will be changed.
 The next function takes the bitwise OR of x and y and then takes the compliment.
-In the case of 0, the result will be all 1s. In the case of any other number, the leftmost bit will be 0. This is because, if the leftmost bit
-of x is 0, then the rightmost bit of y is one, and the bitwise OR output would be 1, once the compliment is taken, the leftmost bit will be 0.
+In the case of 0, the result will be all 1s. In the case of any other number, the leftmost bit will be 0. This is because, if the leftmost bit of x is 0, then the leftmost bit of y is one, and the bitwise OR output would be 1, once the compliment is taken, the leftmost bit will be 0.
 This remains true when x is 1 as well.
 So we know after the first two lines that:
 -The leftmost bit when x=0 is 1
