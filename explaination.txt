@@ -1,0 +1,58 @@
+Authors:
+Sam Bunger
+Marcus Young
+Bite Ye
+
+PART A: Explanations to questions 1-15
+
+~~~~~~~~Question 1~~~~~~~~
+This method will return 1 if the inputted integer is 0, and return 0 otherwise.
+
+The method first, takes the compliment of the bits, adds 1, and sets it equal to y.
+(it turns the value of x negative in 2's compliment)
+0 in binary has the unique property of remaining exactly the same when negated in 2's compliment. So 0 will remain as all 0s
+Any other number will be changed.
+The next function takes the bitwise OR of x and y and then takes the compliment.
+In the case of 0, the result will be all 1s. In the case of any other number, the leftmost bit will be 0. This is because, if the leftmost bit
+of x is 0, then the rightmost bit of y is one, and the bitwise OR output would be 1, once the compliment is taken, the leftmost bit will be 0.
+This remains true when x is 1 as well.
+So we know after the first two lines that:
+-The leftmost bit when x=0 is 1
+-The leftmost bit when x=any other number is 0
+The next line shifts the leftmost-bit all the way until it is the rightmost bit, and fills the rest of the space with 0s and sets it to z
+The bitwise AND of Z and 1 is taken.
+All the bits left of the rightmost bit will become 0, because they are all zero in the case of binary 1 and z
+In the case when x is:
+0 - the function will return 1, because the rightmost bit for both z and binary 1 are 1.
+any other number - will return 0 since the rightmost bit of z is 0.
+
+~~~~~~~~Question 2~~~~~~~~
+This method will return the absolute value of x.
+It first makes the leftmost bit of x, containing the sign, and makes it the rightmost bit, and fills the rest with 0.
+If x was positive, the result of the second line will not change x.
+If x was negative, it will return the same value, except change the rightmost to a 0 or 1 depending on the number.
+Next, if x was positive, then z will become all 0s since taking the complement of 0 and adding one will give you 0
+if x was negative, you will get all ones because when the complement of the mask is taken, everything will become 1 except for the rightmost bit,
+when 1 is added, all the bits in z will then become 1.
+Adding y and z will give you y if x was positive,
+if it was negative it will give you the absolute value of c because adding a number of all 1s and to y will flip the bits and shift the 1s to the left 1,
+giving you a positive value.
+~~~~~~~~Question 3~~~~~~~~
+This method returns 1 if x is greater than 0, and returns 0 otherwise.
+On the first line, y becomes 1 if x is 0, and becomes 0 otherwise.
+On the second line, z becomes 1 if the leftmost bit, indicating the sign of x, is 1, and 0 otherwise.
+The next line takes the bitwise or of x and y. The result will be 1 if x is either 0 or negative, and will be 1 otherwise.
+The last line, returns the 1 if z was 0, or 0 if z was 1. So if x was greater than 0, 1 is returns, and if its less than 1, 0 is returned.
+
+~~~~~~~~Question 4~~~~~~~~
+~~~~~~~~Question 5~~~~~~~~
+~~~~~~~~Question 6~~~~~~~~
+~~~~~~~~Question 7~~~~~~~~
+~~~~~~~~Question 8~~~~~~~~
+~~~~~~~~Question 9~~~~~~~~
+~~~~~~~~Question 10~~~~~~~~
+~~~~~~~~Question 11~~~~~~~~
+~~~~~~~~Question 12~~~~~~~~
+~~~~~~~~Question 13~~~~~~~~
+~~~~~~~~Question 14~~~~~~~~
+~~~~~~~~Question 15~~~~~~~~

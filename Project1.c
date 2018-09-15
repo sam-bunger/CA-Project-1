@@ -1,9 +1,11 @@
 #include <stdio.h>
-
+#include <stdlib.h>
 /*
 Group number:
 Team members:
 Sam Bunger
+Marcus Young
+Bite Ye
 
 */
 
@@ -44,6 +46,7 @@ To run the code to test your function, you will need to insert appropriate C cod
 /*  function ques0 returns 1 if x=y and returns 0 if x is not equal to y */
 /* the function ans0 does the same in two C statements */
 
+
 int ques0(int x, int y){
     int temp;
     temp = ~y;
@@ -66,50 +69,94 @@ int ans0(int x, int y){
 /* question 1 */
 int ques1(int x) {
     int z;
+    //makes x negative in 2's compliment
     int y  = ~x+1;
-    z= (~(y|x));
+    // if x = 0 - leftmost bit becomes 1
+    // else - leftmost bit becomes 0
+    z = (~(y|x));
+    //leftmost bit becomes rightmost bit
     z = (z >> 31);
-
+    //if the rightmost bit is 0 - 0 is returned
+    //else - 1 is returned
     return (z & 1);
+}
 
+/*answer to question 1*/
+int ans1(int x){
+  return (x == 0);
 }
 
 /* question 2 */
-int ques2(x) {
+int ques2(int x) {
+    //Make the leftmost bit the rightmost bit, replace the rest with 0
     int mask = x>>31;
+    //bitwise XOR on x and the mask
+    //If x is positive, y = x
+    //else the leftmost bit of y will be changed.
     int y= (x ^ mask);
+    //If the mask = 0, it will remain 0,
+    //else it will become all 1s
     int z = (~mask + 1);
-
+    //if x is positive, y+z = y
+    //else y+z = the negative 2's compliment of x
     return (y+z);
+}
+
+/*answer to question 2*/
+int ans2(int x){
+  return abs(x);
 }
 
 /* question 3 */
 int ques3(int x){
+    //Finds if x is 0.
     int y = !x;
+    //Finds if x is negative
     int z = x >> 31;
+    //finds if x is 0 or negative
     z = z | y;
-
+    //returns 0 if x is 0 or negative.
     return !z;
+}
+
+/*answer to question 3*/
+int ans3(int x){
+  return x > 0;
 }
 
 /* question 4 */
 /* Assume 0 <= n <= 32 */
 int ques4(int n) {
+    //Shifts the rightmost bit of n all the way to the left
+    //sets it to x
     int x = (!!n) << 31;
+    //Shifts the leftmost bit of x all the way to the right,
+    //sets it to x
     x = x >> 31;
+    //set y to -2147483648
     int y = (1 << 31);
+
     y = y >> (n + (~0));
+    printf("%d\n", y);
 
     return x & y;
+}
+
+int ans4(int n){
+  n = abs(n) % 64;
+  //if(n > 32)
+  return -2147483648/2;
 }
 
 
 /* question 5 */
 
 int ques5(int x) {
-    int result = (x<<31);
-    result = (result >> 31);
 
+    int result = (x<<31);
+    printf("%d\n", result);
+    result = (result >> 31);
+    printf("%d\n", result);
     return result;
 
 }
@@ -247,7 +294,7 @@ main(){
 	printf("you entered a= %d b= %d  \n", a,b);
 
 
-	t1=ques0(a,b);
+	t1=ques5(a);
 	printf("output of ques0 is t1 = %d  \n", t1);
     /* To test/run the functions, you will need to input numbers and then call each of the functions, and print the return value */
 
