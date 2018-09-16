@@ -51,7 +51,12 @@ The last line, returns the 1 if z was 0, or 0 if z was 1. So if x was greater th
 ~~~~~~~~Question 9~~~~~~~~
 ~~~~~~~~Question 10~~~~~~~~
 ~~~~~~~~Question 11~~~~~~~~
+This method takes two numbers and bitwise shifts both of the numbers to the right by 31 bits. Since we are using a 32 bit system, this operation will check if the 31st bit of a and b is on. The function will only return 0 when (the 31st bit of x is off and the 31st bit of y is on) or (if the 31st bit isn't on for x or y, and the 31st bit of the sum of the 31st bit of y and the complement of x's 31st bit is on). Anything else will return 1. 
+
+(Still working on finding a simpler implementation)
 ~~~~~~~~Question 12~~~~~~~~
-~~~~~~~~Question 13~~~~~~~~
+This function checks if x > m, and n > x then the function returns 0, otherwise the function will return 1.This method sets a to m's negative decimal value by taking the two's complement of m by flipping all of its bits and adding one. Next, the method sets b to x's negative decimal value by taking x's twos complement just as a did. Next the method adds a or -m to x, essentially taking the difference of x - m. Then, b takes the difference of n-x. Since we are shifting a Or'd with b 31 bits, we are checking if a or b is negative, if either of them are negative, return 0, otherwise return 1.
+
 ~~~~~~~~Question 14~~~~~~~~
 ~~~~~~~~Question 15~~~~~~~~
+
