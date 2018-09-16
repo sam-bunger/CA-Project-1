@@ -45,6 +45,13 @@ The last line, returns the 1 if z was 0, or 0 if z was 1. So if x was greater th
 
 ~~~~~~~~Question 4~~~~~~~~
 ~~~~~~~~Question 5~~~~~~~~
+This method determines even and odd numbers, by returning 0 for even numbers and -1 for odd numbers.
+First the leftmost bit is right-shifted 31 spaces. The rightmost bit of a binary number will tell you if it is even or odd.
+It will be 1 if it is odd.
+Once it has been shifted to the right, it is then shifted back to the left.
+When 1 is the leftmost bit and is shifted right, the spaces are filled will 1s, until after shifting 31 times, the whole 32 bit binary number is 1s
+The same goes for 0, except 0s are added on to the end.
+Once the number is returned, we will know if it is even or odd.
 ~~~~~~~~Question 6~~~~~~~~
 Basically, this funciton shift 0x55 to the left by 8 bits and fill the empty space with another 0x55. The reuslt of this procedure is 0x5555 which is 101010101010101 in binary. Then, the fucntion do the previous precedure again but shift by 16 bits this time (the length of var we are shifting). The finally result would be 0x55555555.
 In general, we times the input by 16843009. 

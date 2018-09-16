@@ -3,6 +3,7 @@
 
 /*
 Group number:
+9
 Team members:
 Sam Bunger
 Marcus Young
@@ -145,7 +146,7 @@ int ques4(int n)
     x = x >> 31;
     //set y to -2147483648
     int y = (1 << 31);
-
+    printf("%d\n", (n + (~0)));
     y = y >> (n + (~0));
     printf("%d\n", y);
 
@@ -163,14 +164,22 @@ int ans4(int n)
 
 
 /* question 5 */
-int ques5(int x)
-{
+int ques5(int x) {
+    //leftshift the rightmost bit all 31 spaces, replace with 0s
+    int result = (x<<31);
+    //Right shift the signed bit, if it was 1 replace with 1s,
+    //if it was 0, replace with 0
     int result = (x << 31);
     printf("%d\n", result);
     result = (result >> 31);
-    printf("%d\n", result);
+    //The result will be all 1s or -1 for odd numbers
+    //The result will be all 0s or 0 for even numbers
     return result;
+}
 
+/*answer to question 5*/
+int ans5(int x){
+  return -1*(x%2);
 }
 
 /* question 6 */
@@ -344,6 +353,7 @@ int main()
 
     // t1 = ques5(a);
     // printf("output of ques0 is t1 = %d  \n", t1);
+    
     /* To test/run the functions, you will need to input numbers and then call each of the functions, and print the return value */
 
     // Q1
