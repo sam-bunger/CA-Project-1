@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 /*
 Group number:
 Team members:
@@ -47,19 +48,21 @@ To run the code to test your function, you will need to insert appropriate C cod
 /* the function ans0 does the same in two C statements */
 
 
-int ques0(int x, int y){
+int ques0(int x, int y)
+{
     int temp;
     temp = ~y;
-    temp = temp +1;
+    temp = temp + 1;
     temp = temp + x;
     return !(temp);
 }
 
 /* Answer to PART B: */
-int ans0(int x, int y){
-    int z=0;
-    if (x==y)  z= 0;
-    else z= 1;
+int ans0(int x, int y)
+{
+    int z = 0;
+    if (x == y)  z = 0;
+    else z = 1;
 
     return z;
 }
@@ -67,13 +70,14 @@ int ans0(int x, int y){
 /* QUESTIONS */
 
 /* question 1 */
-int ques1(int x) {
+int ques1(int x)
+{
     int z;
     //makes x negative in 2's compliment
-    int y  = ~x+1;
+    int y  = ~x + 1;
     // if x = 0 - leftmost bit becomes 1
     // else - leftmost bit becomes 0
-    z = (~(y|x));
+    z = (~(y | x));
     //leftmost bit becomes rightmost bit
     z = (z >> 31);
     //if the rightmost bit is 0 - 0 is returned
@@ -82,33 +86,37 @@ int ques1(int x) {
 }
 
 /*answer to question 1*/
-int ans1(int x){
-  return (x == 0);
+int ans1(int x)
+{
+    return (x == 0);
 }
 
 /* question 2 */
-int ques2(int x) {
+int ques2(int x)
+{
     //Make the leftmost bit the rightmost bit, replace the rest with 0
-    int mask = x>>31;
+    int mask = x >> 31;
     //bitwise XOR on x and the mask
     //If x is positive, y = x
     //else the leftmost bit of y will be changed.
-    int y= (x ^ mask);
+    int y = (x ^ mask);
     //If the mask = 0, it will remain 0,
     //else it will become all 1s
     int z = (~mask + 1);
     //if x is positive, y+z = y
     //else y+z = the negative 2's compliment of x
-    return (y+z);
+    return (y + z);
 }
 
 /*answer to question 2*/
-int ans2(int x){
-  return abs(x);
+int ans2(int x)
+{
+    return abs(x);
 }
 
 /* question 3 */
-int ques3(int x){
+int ques3(int x)
+{
     //Finds if x is 0.
     int y = !x;
     //Finds if x is negative
@@ -120,13 +128,15 @@ int ques3(int x){
 }
 
 /*answer to question 3*/
-int ans3(int x){
-  return x > 0;
+int ans3(int x)
+{
+    return x > 0;
 }
 
 /* question 4 */
 /* Assume 0 <= n <= 32 */
-int ques4(int n) {
+int ques4(int n)
+{
     //Shifts the rightmost bit of n all the way to the left
     //sets it to x
     int x = (!!n) << 31;
@@ -142,18 +152,20 @@ int ques4(int n) {
     return x & y;
 }
 
-int ans4(int n){
-  n = abs(n) % 64;
-  //if(n > 32)
-  return -2147483648/2;
+
+/* Answer to question 4*/
+int ans4(int n)
+{
+    n = abs(n) % 64;
+    //if(n > 32)
+    return -2147483648 / 2;
 }
 
 
 /* question 5 */
-
-int ques5(int x) {
-
-    int result = (x<<31);
+int ques5(int x)
+{
+    int result = (x << 31);
     printf("%d\n", result);
     result = (result >> 31);
     printf("%d\n", result);
@@ -162,25 +174,25 @@ int ques5(int x) {
 }
 
 /* question 6 */
-
-int ques6(void) {
+int ques6(void)
+{
     int byte = 0x55;
-    int word = byte | byte<<8;
+    int word = byte | byte << 8;
 
-    return word | word<<16;
+    return word | word << 16;
 }
 
 
-    /* question 7 */
-
-int ques7(int x) {
-
-    return x & (~x+1);
+/* question 7 */
+int ques7(int x)
+{
+    return x & (~x + 1);
 }
 
 
 /* question 8 */
-int ques8(int x) {
+int ques8(int x)
+{
     int y = x >> 31;
     int z = !!x;
 
@@ -188,51 +200,51 @@ int ques8(int x) {
 }
 
 /* question 9 */
-
-int ques9(int x, int n, int c) {
+int ques9(int x, int n, int c)
+{
     int n8 = n << 3;
     int mask = 0xff << n8;
     int cshift = c << n8;
-    int z= (x & ~mask);
+    int z = (x & ~mask);
 
     return (z  | cshift);
 }
 
 
 /* question 10 */
-
-int ques10(int x) {
-	int y = !!x;
-	int z = (!(x+x));
+int ques10(int x)
+{
+    int y = !!x;
+    int z = (!(x + x));
 
     return y & z;
 }
 
 
 /* question 11 */
+int ques11(int x, int y)
+{
+    int a = x >> 31;
+    int b = y >> 31;
 
-int ques11(int x, int y) {
-	int a = x >> 31;
-	int b = y >> 31;
-
-    return !((!a & b) | (!(a ^ b) & (y+~x)>>31));
+    return !((!a & b) | (!(a ^ b) & (y + ~x) >> 31));
 }
 
 
 /* question 12 */
-int ques12(int x, int m, int n) {
-    int a = ~m+1;
-    int b = ~x +1;
+int ques12(int x, int m, int n)
+{
+    int a = ~m + 1;
+    int b = ~x + 1;
     a = x + a;
     b = b + n;
 
-    return !((a|b) >> 31);
+    return !((a | b) >> 31);
 }
 
 /* question 13 */
-
-int ques13(int x) {
-
+int ques13(int x)
+{
     int mask1, mask2, mask4, mask8, mask16;
 
     mask2 = 0x33 + (0x33 << 8);
@@ -253,7 +265,8 @@ int ques13(int x) {
 }
 
 /* question 14 */
-int ques14(int x) {
+int ques14(int x)
+{
     int result = 0;
     int i;
 
@@ -264,40 +277,33 @@ int ques14(int x) {
 }
 
 /* question 15 */
-
-int ques15(int x, int n) {
+int ques15(int x, int n)
+{
     /* for ques15 only, assume n is not a negative number  */
-
     int temp = (1 << n);
     int z = temp + ~0;
 
     return (z & x);
 }
 
-
-
-
-int
-main(){
+int main()
+{
     int a, b;
 
     int t1;
 
- 	printf("Enter first number, an integer stored into variable A preferably between 1 and 20:");
- 	scanf ("%d",&a);
-	printf("\n");
- 	printf("Enter second number, an integer stored into variable B preferably between 1 and 20:");
- 	scanf ("%d", &b);
-	printf("\n");
+    printf("Enter first number, an integer stored into variable A preferably between 1 and 20:");
+    scanf ("%d", &a);
+    printf("\n");
+    printf("Enter second number, an integer stored into variable B preferably between 1 and 20:");
+    scanf ("%d", &b);
+    printf("\n");
 
+    printf("you entered a= %d b= %d  \n", a, b);
 
-	printf("you entered a= %d b= %d  \n", a,b);
-
-
-	t1=ques5(a);
-	printf("output of ques0 is t1 = %d  \n", t1);
+    t1 = ques5(a);
+    printf("output of ques0 is t1 = %d  \n", t1);
     /* To test/run the functions, you will need to input numbers and then call each of the functions, and print the return value */
 
-
-	return 0;
+    return 0;
 }
