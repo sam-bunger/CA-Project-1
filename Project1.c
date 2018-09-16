@@ -182,6 +182,12 @@ int ques6(void)
     return word | word << 16;
 }
 
+/* answer 6 */
+int ans6(void)
+{
+    return 0x55 * 16843009;
+}
+
 
 /* question 7 */
 int ques7(int x)
@@ -189,6 +195,12 @@ int ques7(int x)
     return x & (~x + 1);
 }
 
+/* answer 7 */
+int ans7(int x)
+{
+    // I don't think there's simpler way to write this function, neither fewer codes or more readable.
+    return x & (~x + 1);
+}
 
 /* question 8 */
 int ques8(int x)
@@ -199,6 +211,19 @@ int ques8(int x)
     return y | z;
 }
 
+/* answer 8 */
+int ans8(int x)
+{
+    //Just in case someone type in a negative number for a.
+    if (x == 0) {
+        return 0;
+    } else if (x > 0) {
+        return 1;
+    } else {
+        return -1;
+    }
+}
+
 /* question 9 */
 int ques9(int x, int n, int c)
 {
@@ -207,7 +232,14 @@ int ques9(int x, int n, int c)
     int cshift = c << n8;
     int z = (x & ~mask);
 
-    return (z  | cshift);
+    return (z | cshift);
+}
+
+/* answer 9 */
+int ans9(int x, int n, int c)
+{
+    // No intermediate variable created explicitly, fewer operations.
+    return (~(0xff << (n << 3)) & x) | (c << (n << 3));
 }
 
 
@@ -218,6 +250,12 @@ int ques10(int x)
     int z = (!(x + x));
 
     return y & z;
+}
+
+/* answer 10 */
+int ans10(int x)
+{
+    return 0;
 }
 
 
@@ -288,7 +326,7 @@ int ques15(int x, int n)
 
 int main()
 {
-    int a, b;
+    int a, b, c;
 
     int t1;
 
@@ -298,12 +336,80 @@ int main()
     printf("Enter second number, an integer stored into variable B preferably between 1 and 20:");
     scanf ("%d", &b);
     printf("\n");
+    printf("Enter third number, an integer stored into variable C preferably between 1 and 20:");
+    scanf ("%d", &c);
+    printf("\n");
 
-    printf("you entered a= %d b= %d  \n", a, b);
+    printf("you entered a= %d b= %d c= %d \n", a, b, c);
 
-    t1 = ques5(a);
-    printf("output of ques0 is t1 = %d  \n", t1);
+    // t1 = ques5(a);
+    // printf("output of ques0 is t1 = %d  \n", t1);
     /* To test/run the functions, you will need to input numbers and then call each of the functions, and print the return value */
+
+    // Q1
+    t1 = ques1(a);
+    printf("Question1: %d\n", t1);
+    t1 = ans1(a);
+    printf("Question1 (S): %d\n", t1);
+
+    // Q2
+    t1 = ques2(a);
+    printf("Question2: %d\n", t1);
+    t1 = ans2(a);
+    printf("Question2 (S): %d\n", t1);
+
+    // Q3
+    t1 = ques3(a);
+    printf("Question3: %d\n", t1);
+    t1 = ans3(a);
+    printf("Question3 (S): %d\n", t1);
+
+    // Q4
+    /*
+    t1 = ques4(a);
+    printf("Question4: %d\n", t1);
+    t1 = ans4(a);
+    printf("Question4 (S): %d\n", t1);
+    */
+
+    // Q5
+    /*
+    t1 = ques5(a);
+    printf("Question5: %d\n", t1);
+    t1 = ans5(a);
+    printf("Question5 (S): %d\n", t1);
+    */
+
+    // Q6
+    t1 = ques6();
+    printf("Question6: %x\n", t1);
+    t1 = ans6();
+    printf("Question6 (S): %x\n", t1);
+
+    // Q7
+    t1 = ques7(a);
+    printf("Question7: %d\n", t1);
+    t1 = ans7(a);
+    printf("Question7 (S): %d\n", t1);
+
+    // Q8
+    t1 = ques8(a);
+    printf("Question8: %d\n", t1);
+    t1 = ans8(a);
+    printf("Question8 (S): %d\n", t1);
+
+    // Q9
+    t1 = ques9(a, b, c);
+    printf("Question9: %d\n", t1);
+    t1 = ans9(a, b, c);
+    printf("Question9 (S): %d\n", t1);
+
+
+    // Q10
+    t1 = ques10(a);
+    printf("Question10: %d\n", t1);
+    t1 = ans10(a);
+    printf("Question10 (S): %d\n", t1);
 
     return 0;
 }
