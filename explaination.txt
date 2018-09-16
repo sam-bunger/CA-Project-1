@@ -13,8 +13,7 @@ The method first, takes the compliment of the bits, adds 1, and sets it equal to
 0 in binary has the unique property of remaining exactly the same when negated in 2's compliment. So 0 will remain as all 0s
 Any other number will be changed.
 The next function takes the bitwise OR of x and y and then takes the compliment.
-In the case of 0, the result will be all 1s. In the case of any other number, the leftmost bit will be 0. This is because, if the leftmost bit
-of x is 0, then the rightmost bit of y is one, and the bitwise OR output would be 1, once the compliment is taken, the leftmost bit will be 0.
+In the case of 0, the result will be all 1s. In the case of any other number, the leftmost bit will be 0. This is because, if the leftmost bit of x is 0, then the leftmost bit of y is one, and the bitwise OR output would be 1, once the compliment is taken, the leftmost bit will be 0.
 This remains true when x is 1 as well.
 So we know after the first two lines that:
 -The leftmost bit when x=0 is 1
@@ -59,7 +58,12 @@ Once the number is returned, we will know if it is even or odd.
 ~~~~~~~~Question 9~~~~~~~~
 ~~~~~~~~Question 10~~~~~~~~
 ~~~~~~~~Question 11~~~~~~~~
+This method takes two numbers and bitwise shifts both of the numbers to the right by 31 bits. Since we are using a 32 bit system, this operation will check if the 31st bit of a and b is on. The function will only return 0 when (the 31st bit of x is off and the 31st bit of y is on) or (if the 31st bit isn't on for x or y, and the 31st bit of the sum of the 31st bit of y and the complement of x's 31st bit is on). Anything else will return 1. 
+
+(Still working on finding a simpler implementation)
 ~~~~~~~~Question 12~~~~~~~~
-~~~~~~~~Question 13~~~~~~~~
+This function checks if x > m, and n > x then the function returns 0, otherwise the function will return 1.This method sets a to m's negative decimal value by taking the two's complement of m by flipping all of its bits and adding one. Next, the method sets b to x's negative decimal value by taking x's twos complement just as a did. Next the method adds a or -m to x, essentially taking the difference of x - m. Then, b takes the difference of n-x. Since we are shifting a Or'd with b 31 bits, we are checking if a or b is negative, if either of them are negative, return 0, otherwise return 1.
+
 ~~~~~~~~Question 14~~~~~~~~
 ~~~~~~~~Question 15~~~~~~~~
+
