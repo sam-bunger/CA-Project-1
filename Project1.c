@@ -354,7 +354,7 @@ int ques14(int x)
 
 /* answer 14 */
 int ans14(int x){
-  int counter = 0; 
+  int count = 0; 
   while(x)
   {
     count += x&1;
