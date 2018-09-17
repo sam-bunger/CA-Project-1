@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 /*
 Group number:
@@ -247,6 +248,9 @@ int ans9(int x, int n, int c)
 {
     // No intermediate variable created explicitly, fewer operations.
     return (~(0xff << (n << 3)) & x) | (c << (n << 3));
+
+    // This is a more readable and with fewer operations, but there's a risk of data overflow
+    // return (x % (int)pow(2, n * 8)) + (c * pow(2, n * 8));
 }
 
 
