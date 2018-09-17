@@ -44,7 +44,10 @@ The next line takes the bitwise or of x and y. The result will be 1 if x is eith
 The last line, returns the 1 if z was 0, or 0 if z was 1. So if x was greater than 0, 1 is returns, and if its less than 1, 0 is returned.
 
 ~~~~~~~~Question 4~~~~~~~~
-
+When n is 0, the function will return a 0.
+When n > 0 and n<=32 the output is -(2^(32-n))
+The first two lines determine if n is 0 or not, if it is the bitwise AND at the return statement will ensure that 0 is returned when n = 0.
+If it isn't, x will be all ones, so the outcome of the return statement will completely depend on the value of y.
 ~~~~~~~~Question 5~~~~~~~~
 This method determines even and odd numbers, by returning 0 for even numbers and -1 for odd numbers.
 First the leftmost bit is right-shifted 31 spaces. The rightmost bit of a binary number will tell you if it is even or odd.
