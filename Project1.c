@@ -47,16 +47,7 @@ To run the code to test your function, you will need to insert appropriate C cod
  this function is similar to CallMeLast in the inclass exercises */
 /*  function ques0 returns 1 if x=y and returns 0 if x is not equal to y */
 /* the function ans0 does the same in two C statements */
-int myPow(int x,int n)
-{
-    int i; /* Variable used in loop counter */
-    int number = 1;
 
-    for (i = 0; i < n; ++i)
-        number *= x;
-
-    return(number);
-}
 
 int ques0(int x, int y)
 {
@@ -155,10 +146,10 @@ int ques4(int n)
     x = x >> 31;
     //set y to -2147483648
     int y = (1 << 31);
-    //subtract 1 from n and then right shift the number
+    printf("%d\n", (n + (~0)));
     y = y >> (n + (~0));
+    printf("%d\n", y);
 
-    //bitwise AND with x and y
     return x & y;
 }
 
@@ -166,11 +157,9 @@ int ques4(int n)
 /* Answer to question 4*/
 int ans4(int n)
 {
-    if(!n){
-      return 0;
-    }else{
-      return -(myPow(2,(32-n));
-    }
+    n = abs(n) % 64;
+    //if(n > 32)
+    return -2147483648 / 2;
 }
 
 
@@ -286,6 +275,14 @@ int ques11(int x, int y)
     return !((!a & b) | (!(a ^ b) & (y + ~x) >> 31));
 }
 
+/* answer 11 (needs review) */ 
+int ans11(int x, int y)
+{
+  if (x < y || abs(x) < y || (x < 0 && y > 0) ) return -1;
+  else return 0;
+}
+
+
 
 /* question 12 */
 int ques12(int x, int m, int n)
@@ -296,6 +293,13 @@ int ques12(int x, int m, int n)
     b = b + n;
 
     return !((a | b) >> 31);
+}
+
+/* answer 12 */
+int ans12(int x, int m, int n)
+{
+	return (x>=m && n>=x);
+ 
 }
 
 /* question 13 */
@@ -320,6 +324,18 @@ int ques13(int x)
     return x;
 }
 
+/* answer 13 */
+int ans13(int x)
+{
+  int i;
+  int count = 0;
+  for (i = 0; i < 32; i++)
+    if ((x >> i) & 1 == 1)
+      count++;
+  return count;
+}
+
+
 /* question 14 */
 int ques14(int x)
 {
@@ -332,6 +348,19 @@ int ques14(int x)
     return result;
 }
 
+/* answer 14 */
+int ans14(int x){
+  int count = 0; 
+  while(x){
+    count += x&1;
+    x >>=1;
+  }
+  if (count % 2 == 1) return 1;
+  else return 0;
+  
+}
+
+
 /* question 15 */
 int ques15(int x, int n)
 {
@@ -340,6 +369,13 @@ int ques15(int x, int n)
     int z = temp + ~0;
 
     return (z & x);
+}
+
+/* awnser 15 */
+int ans15(int x, int n) 
+{
+ return (x % (1 << n));	//This function returns x modulus 2^n which means it divides x by 2^n and returns the remainder.
+
 }
 
 int main()
@@ -351,7 +387,7 @@ int main()
     printf("Enter first number, an integer stored into variable A preferably between 1 and 20:");
     scanf ("%d", &a);
     printf("\n");
-    /*printf("Enter second number, an integer stored into variable B preferably between 1 and 20:");
+    printf("Enter second number, an integer stored into variable B preferably between 1 and 20:");
     scanf ("%d", &b);
     printf("\n");
     printf("Enter third number, an integer stored into variable C preferably between 1 and 20:");
@@ -359,13 +395,12 @@ int main()
     printf("\n");
 
     printf("you entered a= %d b= %d c= %d \n", a, b, c);
-    */
 
     // t1 = ques5(a);
     // printf("output of ques0 is t1 = %d  \n", t1);
 
     /* To test/run the functions, you will need to input numbers and then call each of the functions, and print the return value */
-    /*
+
     // Q1
     t1 = ques1(a);
     printf("Question1: %d\n", t1);
@@ -383,22 +418,22 @@ int main()
     printf("Question3: %d\n", t1);
     t1 = ans3(a);
     printf("Question3 (S): %d\n", t1);
-    */
 
     // Q4
+    /*
     t1 = ques4(a);
     printf("Question4: %d\n", t1);
     t1 = ans4(a);
     printf("Question4 (S): %d\n", t1);
+    */
 
-    /*
     // Q5
-
+    /*
     t1 = ques5(a);
     printf("Question5: %d\n", t1);
     t1 = ans5(a);
     printf("Question5 (S): %d\n", t1);
-
+    */
 
     // Q6
     t1 = ques6();
@@ -430,7 +465,37 @@ int main()
     printf("Question10: %d\n", t1);
     t1 = ans10(a);
     printf("Question10 (S): %d\n", t1);
-
+ 
+    //Q11 
+    t1 = ques11(a,b);
+    printf("Question11: %d\n", t1);
+    t1 = ans11(a,b);
+    printf("Question11 (S): %d\n", t1);
+ 
+    //Q12 
+    t1 = ques12(a,b,c);
+    printf("Question12: %d\n", t1);
+    t1 = ans12(a,b,c);
+    printf("Question12 (S): %d\n", t1);
+ 
+    //Q13 
+    t1 = ques13(a);
+    printf("Question13: %d\n", t1);
+    t1 = ans13(a);
+    printf("Question13 (S): %d\n", t1);
+ 
+    //Q14 
+    t1 = ques14(a);
+    printf("Question14: %d\n", t1);
+    t1 = ans14(a);
+    printf("Question14 (S): %d\n", t1);
+ 
+    //Q15 
+    t1 = ques15(a,b);
+    printf("Question15: %d\n", t1);
+    t1 = ans15(a,b);
+    printf("Question15 (S): %d\n", t1);
+ 
+ 
     return 0;
-    */
 }
