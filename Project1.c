@@ -165,7 +165,8 @@ int ans4(int n)
 
 
 /* question 5 */
-int ques5(int x) {
+int ques5(int x)
+{
     //leftshift the rightmost bit all 31 spaces, replace with 0s
     int result = (x << 31);
     //Right shift the signed bit, if it was 1 replace with 1s,
@@ -177,8 +178,9 @@ int ques5(int x) {
 }
 
 /*answer to question 5*/
-int ans5(int x){
-  return -1*(x%2);
+int ans5(int x)
+{
+    return -1 * (x % 2);
 }
 
 /* question 6 */
@@ -279,11 +281,11 @@ int ques11(int x, int y)
     return !((!a & b) | (!(a ^ b) & (y + ~x) >> 31));
 }
 
-/* answer 11 (needs review) */ 
+/* answer 11 (needs review) */
 int ans11(int x, int y)
 {
-  if (x < y || abs(x) < y || (x < 0 && y > 0) ) return -1;
-  else return 0;
+    if (x < y || abs(x) < y || (x < 0 && y > 0) ) return -1;
+    else return 0;
 }
 
 
@@ -302,8 +304,8 @@ int ques12(int x, int m, int n)
 /* answer 12 */
 int ans12(int x, int m, int n)
 {
-	return (x>=m && n>=x);
- 
+    return (x >= m && n >= x);
+
 }
 
 /* question 13 */
@@ -331,12 +333,12 @@ int ques13(int x)
 /* answer 13 */
 int ans13(int x)
 {
-  int i;
-  int count = 0;
-  for (i = 0; i < 32; i++)
-    if ((x >> i) & 1 == 1)
-      count++;
-  return count;
+    int i;
+    int count = 0;
+    for (i = 0; i < 32; i++)
+        if ((x >> i) & 1 == 1)
+            count++;
+    return count;
 }
 
 
@@ -353,18 +355,18 @@ int ques14(int x)
 }
 
 /* answer 14 */
-int ans14(int x){
-  int count = 0; 
-  while(x)
-  {
-    count += x&1;
-    x >>=1;
-  }
-  if (count % 2 == 1)
-	  return 1;
-  else 
-	  return 0;
-  
+int ans14(int x)
+{
+    int count = 0;
+    while (x) {
+        count += x & 1;
+        x >>= 1;
+    }
+    if (count % 2 == 1)
+        return 1;
+    else
+        return 0;
+
 }
 
 
@@ -379,9 +381,9 @@ int ques15(int x, int n)
 }
 
 /* awnser 15 */
-int ans15(int x, int n) 
+int ans15(int x, int n)
 {
- return (x % (1 << n));	//This function returns x modulus 2^n which means it divides x by 2^n and returns the remainder.
+    return (x % (1 << n));	//This function returns x modulus 2^n which means it divides x by 2^n and returns the remainder.
 
 }
 
@@ -472,37 +474,37 @@ int main()
     printf("Question10: %d\n", t1);
     t1 = ans10(a);
     printf("Question10 (S): %d\n", t1);
- 
-    //Q11 
-    t1 = ques11(a,b);
+
+    //Q11
+    t1 = ques11(a, b);
     printf("Question11: %d\n", t1);
-    t1 = ans11(a,b);
+    t1 = ans11(a, b);
     printf("Question11 (S): %d\n", t1);
- 
-    //Q12 
-    t1 = ques12(a,b,c);
+
+    //Q12
+    t1 = ques12(a, b, c);
     printf("Question12: %d\n", t1);
-    t1 = ans12(a,b,c);
+    t1 = ans12(a, b, c);
     printf("Question12 (S): %d\n", t1);
- 
-    //Q13 
+
+    //Q13
     t1 = ques13(a);
     printf("Question13: %d\n", t1);
     t1 = ans13(a);
     printf("Question13 (S): %d\n", t1);
- 
-    //Q14 
+
+    //Q14
     t1 = ques14(a);
     printf("Question14: %d\n", t1);
     t1 = ans14(a);
     printf("Question14 (S): %d\n", t1);
- 
-    //Q15 
-    t1 = ques15(a,b);
+
+    //Q15
+    t1 = ques15(a, b);
     printf("Question15: %d\n", t1);
-    t1 = ans15(a,b);
+    t1 = ans15(a, b);
     printf("Question15 (S): %d\n", t1);
- 
- 
+
+
     return 0;
 }
