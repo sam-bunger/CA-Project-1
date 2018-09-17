@@ -166,11 +166,9 @@ int ans4(int n)
 /* question 5 */
 int ques5(int x) {
     //leftshift the rightmost bit all 31 spaces, replace with 0s
-    int result = (x<<31);
+    int result = (x << 31);
     //Right shift the signed bit, if it was 1 replace with 1s,
     //if it was 0, replace with 0
-    int result = (x << 31);
-    printf("%d\n", result);
     result = (result >> 31);
     //The result will be all 1s or -1 for odd numbers
     //The result will be all 0s or 0 for even numbers
@@ -353,7 +351,7 @@ int main()
 
     // t1 = ques5(a);
     // printf("output of ques0 is t1 = %d  \n", t1);
-    
+
     /* To test/run the functions, you will need to input numbers and then call each of the functions, and print the return value */
 
     // Q1

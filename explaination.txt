@@ -44,6 +44,7 @@ The next line takes the bitwise or of x and y. The result will be 1 if x is eith
 The last line, returns the 1 if z was 0, or 0 if z was 1. So if x was greater than 0, 1 is returns, and if its less than 1, 0 is returned.
 
 ~~~~~~~~Question 4~~~~~~~~
+
 ~~~~~~~~Question 5~~~~~~~~
 This method determines even and odd numbers, by returning 0 for even numbers and -1 for odd numbers.
 First the leftmost bit is right-shifted 31 spaces. The rightmost bit of a binary number will tell you if it is even or odd.
@@ -54,7 +55,7 @@ The same goes for 0, except 0s are added on to the end.
 Once the number is returned, we will know if it is even or odd.
 ~~~~~~~~Question 6~~~~~~~~
 Basically, this funciton shift 0x55 to the left by 8 bits and fill the empty space with another 0x55. The reuslt of this procedure is 0x5555 which is 101010101010101 in binary. Then, the fucntion do the previous precedure again but shift by 16 bits this time (the length of var we are shifting). The finally result would be 0x55555555.
-In general, we times the input by 16843009. 
+In general, we times the input by 16843009.
 ~~~~~~~~Question 7~~~~~~~~
 This function return the result of a bitwise and operation between the input and its 2s complement (by generate its 1s complemnt first by using bitwise NOT and then add 1).
 ~~~~~~~~Question 8~~~~~~~~
@@ -67,7 +68,7 @@ Basically, we take the right by input n times 8 bits of input x and append it to
 We do a logical NOT twice on input x and call it 'y'. And do a logical NOT once on the result of 2 times input x, call it 'z'. Finally, return the result of an bitwise AND operation between 'y' and 'z'.
 The function will always return 0.
 ~~~~~~~~Question 11~~~~~~~~
-This method takes two numbers and bitwise shifts both of the numbers to the right by 31 bits. Since we are using a 32 bit system, this operation will check if the 31st bit of a and b is on. The function will only return 0 when (the 31st bit of x is off and the 31st bit of y is on) or (if the 31st bit isn't on for x or y, and the 31st bit of the sum of the 31st bit of y and the complement of x's 31st bit is on). Anything else will return 1. 
+This method takes two numbers and bitwise shifts both of the numbers to the right by 31 bits. Since we are using a 32 bit system, this operation will check if the 31st bit of a and b is on. The function will only return 0 when (the 31st bit of x is off and the 31st bit of y is on) or (if the 31st bit isn't on for x or y, and the 31st bit of the sum of the 31st bit of y and the complement of x's 31st bit is on). Anything else will return 1.
 
 (Still working on finding a simpler implementation)
 ~~~~~~~~Question 12~~~~~~~~
@@ -75,4 +76,3 @@ This function checks if x > m, and n > x then the function returns 0, otherwise 
 
 ~~~~~~~~Question 14~~~~~~~~
 ~~~~~~~~Question 15~~~~~~~~
-
