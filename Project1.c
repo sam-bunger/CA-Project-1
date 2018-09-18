@@ -185,9 +185,13 @@ int ans5(int x)
 /* question 6 */
 int ques6(void)
 {
+	// Assign 0x55 to byte
     int byte = 0x55;
+
+    // Let word equal to byte OR (byte shift to left by 8bits)
     int word = byte | byte << 8;
 
+    // Return word OR (word shift to left by 16bits)
     return word | word << 16;
 }
 
@@ -201,6 +205,7 @@ int ans6(void)
 /* question 7 */
 int ques7(int x)
 {
+	//Return X AND (NOT X plus one)
     return x & (~x + 1);
 }
 
@@ -214,16 +219,19 @@ int ans7(int x)
 /* question 8 */
 int ques8(int x)
 {
+	// Let y equal to x shift to right by 31bits. Let y equal to MSB of X.
     int y = x >> 31;
+
+    // Let z equal to NOT(NOT X) <- Logical, not bitwise. Should always be true when X isn't 0.
     int z = !!x;
 
+    // Return y OR Z (bitwise)
     return y | z;
 }
 
 /* answer 8 */
 int ans8(int x)
 {
-    //Just in case someone type in a negative number for a.
     if (x == 0) {
         return 0;
     } else if (x > 0) {
@@ -236,11 +244,19 @@ int ans8(int x)
 /* question 9 */
 int ques9(int x, int n, int c)
 {
+	// Let n8 equal to n times 8
     int n8 = n << 3;
+
+    // Shift 0xff to the left by n8 and assign it to mask
     int mask = 0xff << n8;
+
+    // Shift c to the left by n8 and assign it to cshift
     int cshift = c << n8;
+
+    // Let z equal to X AND NOT MASK
     int z = (x & ~mask);
 
+    // Return z OR cshift
     return (z | cshift);
 }
 
@@ -254,9 +270,13 @@ int ans9(int x, int n, int c)
 /* question 10 */
 int ques10(int x)
 {
+	// Let y equal to NOT(NOT X) (logical)
     int y = !!x;
+
+    // Let z equal to NOT(X plus X) (NOT is logical)
     int z = (!(x + x));
 
+    // Return y AND Z
     return y & z;
 }
 
@@ -432,12 +452,10 @@ int main()
     */
 
     // Q5
-    /*
     t1 = ques5(a);
     printf("Question5: %d\n", t1);
     t1 = ans5(a);
     printf("Question5 (S): %d\n", t1);
-    */
 
     // Q6
     t1 = ques6();
