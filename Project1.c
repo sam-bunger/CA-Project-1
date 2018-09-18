@@ -373,18 +373,20 @@ int ques14(int x)
 }
 
 /* answer 14 */
-int ans14(int x)
-{
-    int count = 0;
-    while (x) {
-        count += x & 1;
-        x >>= 1;
-    }
-    if (count % 2 == 1)
-        return 1;
-    else
-        return 0;
-
+int ans14(int x){
+  int count = 0;
+  //If x is negative, count an extra bit to account for the signed bit. 
+  if(x < 0)
+  {
+    count++;
+  }
+  while(x)
+  {
+    count += x&1;
+    x >>=1;
+  }
+  if (count % 2 == 1) return 1;
+  else return 0;
 }
 
 
