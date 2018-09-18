@@ -351,12 +351,12 @@ int ques13(int x)
 /* answer 13 */
 int ans13(int x)
 {
+    int bitsOn = 0;
     int i;
-    int count = 0;
-    for (i = 0; i < 32; i++)
-        if ((x >> i) & 1 == 1)
-            count++;
-    return count;
+    for (i = 0; i < 32; i++) // <32 because there are 0-31 bits.
+        if ((x >> i) & 1 == 1) //If the selected bit is on, add 1 to the bitsOn.  
+            bitsOn++;
+    return bitsOn;
 }
 
 
