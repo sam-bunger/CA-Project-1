@@ -185,7 +185,7 @@ int ans5(int x)
 /* question 6 */
 int ques6(void)
 {
-	// Assign 0x55 to byte
+    // Assign 0x55 to byte
     int byte = 0x55;
 
     // Let word equal to byte OR (byte shift to left by 8bits)
@@ -205,7 +205,7 @@ int ans6(void)
 /* question 7 */
 int ques7(int x)
 {
-	//Return X AND (NOT X plus one)
+    //Return X AND (NOT X plus one)
     return x & (~x + 1);
 }
 
@@ -219,7 +219,7 @@ int ans7(int x)
 /* question 8 */
 int ques8(int x)
 {
-	// Let y equal to x shift to right by 31bits. Let y equal to MSB of X.
+    // Let y equal to x shift to right by 31bits. Let y equal to MSB of X.
     int y = x >> 31;
 
     // Let z equal to NOT(NOT X) <- Logical, not bitwise. Should always be true when X isn't 0.
@@ -244,7 +244,7 @@ int ans8(int x)
 /* question 9 */
 int ques9(int x, int n, int c)
 {
-	// Let n8 equal to n times 8
+    // Let n8 equal to n times 8
     int n8 = n << 3;
 
     // Shift 0xff to the left by n8 and assign it to mask
@@ -270,7 +270,7 @@ int ans9(int x, int n, int c)
 /* question 10 */
 int ques10(int x)
 {
-	// Let y equal to NOT(NOT X) (logical)
+    // Let y equal to NOT(NOT X) (logical)
     int y = !!x;
 
     // Let z equal to NOT(X plus X) (NOT is logical)
