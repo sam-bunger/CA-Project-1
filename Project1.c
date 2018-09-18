@@ -47,16 +47,7 @@ To run the code to test your function, you will need to insert appropriate C cod
  this function is similar to CallMeLast in the inclass exercises */
 /*  function ques0 returns 1 if x=y and returns 0 if x is not equal to y */
 /* the function ans0 does the same in two C statements */
-int myPow(int x,int n)
-{
-    int i; /* Variable used in loop counter */
-    int number = 1;
 
-    for (i = 0; i < n; ++i)
-        number *= x;
-
-    return(number);
-}
 
 int ques0(int x, int y)
 {
@@ -155,10 +146,10 @@ int ques4(int n)
     x = x >> 31;
     //set y to -2147483648
     int y = (1 << 31);
-    //subtract 1 from n and then right shift the number
+    printf("%d\n", (n + (~0)));
     y = y >> (n + (~0));
+    printf("%d\n", y);
 
-    //bitwise AND with x and y
     return x & y;
 }
 
@@ -166,16 +157,15 @@ int ques4(int n)
 /* Answer to question 4*/
 int ans4(int n)
 {
-    if(!n){
-      return 0;
-    }else{
-      return -(myPow(2,(32-n));
-    }
+    n = abs(n) % 64;
+    //if(n > 32)
+    return -2147483648 / 2;
 }
 
 
 /* question 5 */
-int ques5(int x) {
+int ques5(int x)
+{
     //leftshift the rightmost bit all 31 spaces, replace with 0s
     int result = (x << 31);
     //Right shift the signed bit, if it was 1 replace with 1s,
@@ -187,16 +177,21 @@ int ques5(int x) {
 }
 
 /*answer to question 5*/
-int ans5(int x){
-  return -1*(x%2);
+int ans5(int x)
+{
+    return -1 * (x % 2);
 }
 
 /* question 6 */
 int ques6(void)
 {
+    // Assign 0x55 to byte
     int byte = 0x55;
+
+    // Let word equal to byte OR (byte shift to left by 8bits)
     int word = byte | byte << 8;
 
+    // Return word OR (word shift to left by 16bits)
     return word | word << 16;
 }
 
@@ -210,6 +205,7 @@ int ans6(void)
 /* question 7 */
 int ques7(int x)
 {
+    //Return X AND (NOT X plus one)
     return x & (~x + 1);
 }
 
@@ -223,16 +219,19 @@ int ans7(int x)
 /* question 8 */
 int ques8(int x)
 {
+    // Let y equal to x shift to right by 31bits. Let y equal to MSB of X.
     int y = x >> 31;
+
+    // Let z equal to NOT(NOT X) <- Logical, not bitwise. Should always be true when X isn't 0.
     int z = !!x;
 
+    // Return y OR Z (bitwise)
     return y | z;
 }
 
 /* answer 8 */
 int ans8(int x)
 {
-    //Just in case someone type in a negative number for a.
     if (x == 0) {
         return 0;
     } else if (x > 0) {
@@ -245,28 +244,39 @@ int ans8(int x)
 /* question 9 */
 int ques9(int x, int n, int c)
 {
+    // Let n8 equal to n times 8
     int n8 = n << 3;
+
+    // Shift 0xff to the left by n8 and assign it to mask
     int mask = 0xff << n8;
+
+    // Shift c to the left by n8 and assign it to cshift
     int cshift = c << n8;
+
+    // Let z equal to X AND NOT MASK
     int z = (x & ~mask);
 
+    // Return z OR cshift
     return (z | cshift);
 }
 
 /* answer 9 */
 int ans9(int x, int n, int c)
 {
-    // No intermediate variable created explicitly, fewer operations.
-    return (~(0xff << (n << 3)) & x) | (c << (n << 3));
+    return (x & ~(0xff << (n * 8))) + (c << (n * 8));
 }
 
 
 /* question 10 */
 int ques10(int x)
 {
+    // Let y equal to NOT(NOT X) (logical)
     int y = !!x;
+
+    // Let z equal to NOT(X plus X) (NOT is logical)
     int z = (!(x + x));
 
+    // Return y AND Z
     return y & z;
 }
 
@@ -286,6 +296,14 @@ int ques11(int x, int y)
     return !((!a & b) | (!(a ^ b) & (y + ~x) >> 31));
 }
 
+/* answer 11 (needs review) */
+int ans11(int x, int y)
+{
+    if (x < y || abs(x) < y || (x < 0 && y > 0) ) return -1;
+    else return 0;
+}
+
+
 
 /* question 12 */
 int ques12(int x, int m, int n)
@@ -296,6 +314,13 @@ int ques12(int x, int m, int n)
     b = b + n;
 
     return !((a | b) >> 31);
+}
+
+/* answer 12 */
+int ans12(int x, int m, int n)
+{
+    return (x >= m && n >= x);
+
 }
 
 /* question 13 */
@@ -320,6 +345,18 @@ int ques13(int x)
     return x;
 }
 
+/* answer 13 */
+int ans13(int x)
+{
+    int i;
+    int count = 0;
+    for (i = 0; i < 32; i++)
+        if ((x >> i) & 1 == 1)
+            count++;
+    return count;
+}
+
+
 /* question 14 */
 int ques14(int x)
 {
@@ -332,6 +369,22 @@ int ques14(int x)
     return result;
 }
 
+/* answer 14 */
+int ans14(int x)
+{
+    int count = 0;
+    while (x) {
+        count += x & 1;
+        x >>= 1;
+    }
+    if (count % 2 == 1)
+        return 1;
+    else
+        return 0;
+
+}
+
+
 /* question 15 */
 int ques15(int x, int n)
 {
@@ -340,6 +393,13 @@ int ques15(int x, int n)
     int z = temp + ~0;
 
     return (z & x);
+}
+
+/* awnser 15 */
+int ans15(int x, int n)
+{
+    return (x % (1 << n));	//This function returns x modulus 2^n which means it divides x by 2^n and returns the remainder.
+
 }
 
 int main()
@@ -351,7 +411,7 @@ int main()
     printf("Enter first number, an integer stored into variable A preferably between 1 and 20:");
     scanf ("%d", &a);
     printf("\n");
-    /*printf("Enter second number, an integer stored into variable B preferably between 1 and 20:");
+    printf("Enter second number, an integer stored into variable B preferably between 1 and 20:");
     scanf ("%d", &b);
     printf("\n");
     printf("Enter third number, an integer stored into variable C preferably between 1 and 20:");
@@ -359,13 +419,12 @@ int main()
     printf("\n");
 
     printf("you entered a= %d b= %d c= %d \n", a, b, c);
-    */
 
     // t1 = ques5(a);
     // printf("output of ques0 is t1 = %d  \n", t1);
 
     /* To test/run the functions, you will need to input numbers and then call each of the functions, and print the return value */
-    /*
+
     // Q1
     t1 = ques1(a);
     printf("Question1: %d\n", t1);
@@ -383,22 +442,20 @@ int main()
     printf("Question3: %d\n", t1);
     t1 = ans3(a);
     printf("Question3 (S): %d\n", t1);
-    */
 
     // Q4
+    /*
     t1 = ques4(a);
     printf("Question4: %d\n", t1);
     t1 = ans4(a);
     printf("Question4 (S): %d\n", t1);
+    */
 
-    /*
     // Q5
-
     t1 = ques5(a);
     printf("Question5: %d\n", t1);
     t1 = ans5(a);
     printf("Question5 (S): %d\n", t1);
-
 
     // Q6
     t1 = ques6();
@@ -431,6 +488,36 @@ int main()
     t1 = ans10(a);
     printf("Question10 (S): %d\n", t1);
 
+    //Q11
+    t1 = ques11(a, b);
+    printf("Question11: %d\n", t1);
+    t1 = ans11(a, b);
+    printf("Question11 (S): %d\n", t1);
+
+    //Q12
+    t1 = ques12(a, b, c);
+    printf("Question12: %d\n", t1);
+    t1 = ans12(a, b, c);
+    printf("Question12 (S): %d\n", t1);
+
+    //Q13
+    t1 = ques13(a);
+    printf("Question13: %d\n", t1);
+    t1 = ans13(a);
+    printf("Question13 (S): %d\n", t1);
+
+    //Q14
+    t1 = ques14(a);
+    printf("Question14: %d\n", t1);
+    t1 = ans14(a);
+    printf("Question14 (S): %d\n", t1);
+
+    //Q15
+    t1 = ques15(a, b);
+    printf("Question15: %d\n", t1);
+    t1 = ans15(a, b);
+    printf("Question15 (S): %d\n", t1);
+
+
     return 0;
-    */
 }

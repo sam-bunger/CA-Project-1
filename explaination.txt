@@ -64,7 +64,7 @@ In general, we times the input by 16843009.
 This function return the result of a bitwise and operation between the input and its 2s complement (by generate its 1s complemnt first by using bitwise NOT and then add 1).
 ~~~~~~~~Question 8~~~~~~~~
 This function shift the input to right by 31 bits, basically this gives us its most significant bit, since we're duealing with 32 bits int. Then do a bitwise OR operation between its MSB and what we got after doing a logical NOT twice to the input.
-This function will return 1 if the input isn't 0, and return 0 if the input is 0.
+This function will return 1 if the input is larger 0, return 0 if the input is 0, and return -1 if the input is smaller than 0.
 ~~~~~~~~Question 9~~~~~~~~
 We shift 0xFF to the left by input n times 8, call it mask, and shift input c to the left by input n times 8, call it 'cshift'. Then, we do an AND operation between the invert of 'mask' and input x, call it 'z'. Finally, we return the result of a bitwise OR operation between 'z' and 'cshift'.
 Basically, we take the right by input n times 8 bits of input x and append it to the input c.
