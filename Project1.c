@@ -295,18 +295,16 @@ int ques11(int x, int y)
 {
     int a = x >> 31;
     int b = y >> 31;
+    //shifts a and b to there 31st bit
 
+    //if x < 0 and y > 0 return
     return !((!a & b) | (!(a ^ b) & (y + ~x) >> 31));
 }
 
 /* answer 11 */
 int ans11(int x, int y) {
-    if ((x < 0 && y > 0) || abs(x) < y) {
-        return 1;
-    }
-    else {
-        return 0;
-    }
+    
+     return((x < 0 && y > 0) || abs(x) < y);
 }
 
 /* question 12 */
@@ -379,7 +377,9 @@ int ans14(int x) {
     int i;
     int bit;
     for (i = 0; i < 32; i++) {
+        //iterates through all 32 bits, check if each individual bit is on.
         bit = x >> i;
+        //if each bit is on (&1), add on to the total bit counter. 
         if (bit & 1){
             counter++;
         }
