@@ -72,12 +72,17 @@ Basically, we take the right by input n times 8 bits of input x and append it to
 We do a logical NOT twice on input x and call it 'y'. And do a logical NOT once on the result of 2 times input x, call it 'z'. Finally, return the result of an bitwise AND operation between 'y' and 'z'.
 The function will always return 0.
 ~~~~~~~~Question 11~~~~~~~~
-This method takes two numbers and bitwise shifts both of the numbers to the right by 31 bits. Since we are using a 32 bit system, this operation will check if the 31st bit of a and b is on. The function will only return 0 when (the 31st bit of x is off and the 31st bit of y is on) or (if the 31st bit isn't on for x or y, and the 31st bit of the sum of the 31st bit of y and the complement of x's 31st bit is on). Anything else will return 1.
+Returns 1 when x is negative and y is positive. Returns 0 in all other cases. This method takes two numbers and bitwise shifts both of the numbers to the right by 31 bits. Since we are using a 32 bit system, this operation will check if the 31st bit of a and b is on. The function will only return 0 when (the 31st bit of x is off and the 31st bit of y is on) or (if the 31st bit isn't on for x or y, and the 31st bit of the sum of the 31st bit of y and the complement of x's 31st bit is on). Anything else will return 1.
 
 (Still working on finding a simpler implementation)
 ~~~~~~~~Question 12~~~~~~~~
-This function checks if x > m, and n > x then the function returns 0, otherwise the function will return 1.This method sets a to m's negative decimal value by taking the two's complement of m by flipping all of its bits and adding one. Next, the method sets b to x's negative decimal value by taking x's twos complement just as a did. Next the method adds a or -m to x, essentially taking the difference of x - m. Then, b takes the difference of n-x. Since we are shifting a Or'd with b 31 bits, we are checking if a or b is negative, if either of them are negative, return 0, otherwise return 1.
+This function checks if x >= m, and n >= x then the function returns 0, otherwise the function will return 1.This method sets a to m's negative decimal value by taking the two's complement of m by flipping all of its bits and adding one. Next, the method sets b to x's negative decimal value by taking x's twos complement just as a did. Next the method adds a or -m to x, essentially taking the difference of x - m. Then, b takes the difference of n-x. Since we are shifting a Or'd with b 31 bits, we are checking if a or b is negative, if either of them are negative, return 0, otherwise return 1.
 
 ~~~~~~~~Question 13~~~~~~~~
+This function essentially returns the entire number of binary bits that are 1 or turned on in a number. First, it creates mask 2 which is the sum of 13107 + 858980352, which is 858993459. Then it uses mask1 to create mask2, taking the bitwise exclusive or of mask2, and mask2 leftshifted once. This sets mask1 to a bianary representation of alternating 1's and 0's = 1010101010101010101010101010101. Next, mask4 is the sum 3855 + 252641280 = 252645135, mask8 is the sum mask8: 255 + 16711680 = 16711935, and mask16 is the sum 255 + 65280 = 65535. X is then manipulated by all of the masks, saving the amount of 1's in x through each mask manipulation. The function returns x, the amount of 1's in it's bianary representation. 
+
 ~~~~~~~~Question 14~~~~~~~~
+Returns 1 if there are an odd number of true bits. Returns 0 if there are an even number of true bits.
+
 ~~~~~~~~Question 15~~~~~~~~
+This function returns x modulus 2^n, if x mod 2^n is .
