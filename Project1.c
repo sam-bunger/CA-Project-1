@@ -299,14 +299,15 @@ int ques11(int x, int y)
     return !((!a & b) | (!(a ^ b) & (y + ~x) >> 31));
 }
 
-/* answer 11 (needs review) */
-int ans11(int x, int y)
-{
-    if (x < y || abs(x) < y || (x < 0 && y > 0) ) return -1;
-    else return 0;
+/* answer 11 */
+int ans11(int x, int y) {
+    if ((x < 0 && y > 0) || abs(x) < y) {
+        return 1;
+    }
+    else {
+        return 0;
+    }
 }
-
-
 
 /* question 12 */
 int ques12(int x, int m, int n)
