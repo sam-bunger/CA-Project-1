@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 /*
 Group number:
@@ -146,9 +147,9 @@ int ques4(int n)
     x = x >> 31;
     //set y to -2147483648
     int y = (1 << 31);
-    printf("%d\n", (n + (~0)));
+
     y = y >> (n + (~0));
-    printf("%d\n", y);
+
 
     return x & y;
 }
@@ -157,9 +158,11 @@ int ques4(int n)
 /* Answer to question 4*/
 int ans4(int n)
 {
-    n = abs(n) % 64;
-    //if(n > 32)
-    return -2147483648 / 2;
+    if(!n){
+      return 0;
+    }else{
+      return -1*(pow(2,(32-n)));
+    }
 }
 
 
