@@ -58,7 +58,7 @@ When 1 is the leftmost bit and is shifted right, the spaces are filled will 1s, 
 The same goes for 0, except 0s are added on to the end.
 Once the number is returned, we will know if it is even or odd.
 ~~~~~~~~Question 6~~~~~~~~
-Basically, this funciton shift 0x55 to the left by 8 bits and fill the empty space with another 0x55. The reuslt of this procedure is 0x5555 which is 101010101010101 in binary. Then, the fucntion do the previous precedure again but shift by 16 bits this time (the length of var we are shifting). The finally result would be 0x55555555.
+Basically, this function shift 0x55 to the left by 8 bits and fill the empty space with another 0x55. The reuslt of this procedure is 0x5555 which is 101010101010101 in binary. Then, the fucntion do the previous precedure again but shift by 16 bits this time (the length of var we are shifting). The finally result would be 0x55555555.
 In general, we times the input by 16843009.
 ~~~~~~~~Question 7~~~~~~~~
 This function return the result of a bitwise and operation between the input and its 2s complement (by generate its 1s complemnt first by using bitwise NOT and then add 1).
@@ -78,5 +78,6 @@ This method takes two numbers and bitwise shifts both of the numbers to the righ
 ~~~~~~~~Question 12~~~~~~~~
 This function checks if x > m, and n > x then the function returns 0, otherwise the function will return 1.This method sets a to m's negative decimal value by taking the two's complement of m by flipping all of its bits and adding one. Next, the method sets b to x's negative decimal value by taking x's twos complement just as a did. Next the method adds a or -m to x, essentially taking the difference of x - m. Then, b takes the difference of n-x. Since we are shifting a Or'd with b 31 bits, we are checking if a or b is negative, if either of them are negative, return 0, otherwise return 1.
 
+~~~~~~~~Question 13~~~~~~~~
 ~~~~~~~~Question 14~~~~~~~~
 ~~~~~~~~Question 15~~~~~~~~
