@@ -420,8 +420,6 @@ int main()
 
     printf("you entered a= %d b= %d c= %d \n", a, b, c);
 
-    // t1 = ques5(a);
-    // printf("output of ques0 is t1 = %d  \n", t1);
 
     /* To test/run the functions, you will need to input numbers and then call each of the functions, and print the return value */
 
@@ -444,12 +442,11 @@ int main()
     printf("Question3 (S): %d\n", t1);
 
     // Q4
-    /*
     t1 = ques4(a);
     printf("Question4: %d\n", t1);
     t1 = ans4(a);
     printf("Question4 (S): %d\n", t1);
-    */
+
 
     // Q5
     t1 = ques5(a);
